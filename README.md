@@ -5,6 +5,11 @@ This plugin is to create a form with dynamic fields.
 Installation: include the `dynaform.js` file in your main file.
 
 Setup configs:
+
+
+Statup form: 
+- HTML: `<div id="integration-form"></div>`
+- JS:
 ```
   options = {
    'Token' 62bb61431348e22850828a5829c4373faafe29c1 '
@@ -14,8 +19,7 @@ Setup configs:
      'Level': [ 'Beginner', 'Intermediate', 'Advanced', 'Ninja']
    }
   }
-```
+  
+  $('#integration-form').dynaform(options);
+``` 
 
-Statup form: 
-- HTML: `<div id="integration-form"></div>`
-- JS: `$('#integration-form').dynaform(options);`
