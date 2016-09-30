@@ -2,7 +2,7 @@
 
 This plugin is to create a form with dynamic fields.
 
-Installation: include the dynaform.js file in your main file.
+Installation: include the `dynaform.js` file in your main file.
 
 Setup configs:
 ```
@@ -16,5 +16,4 @@ Setup configs:
   }
 ```
 
-Statup form:
-$('#integration-form').dynaform(options);
+Statup form: `$('#integration-form').dynaform(options);`
