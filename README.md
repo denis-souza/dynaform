@@ -7,7 +7,7 @@ Installation: include the `dynaform.js` file in your main file.
 Setup configs:
 
 
-Statup form: 
+Startup form: 
 - HTML: `<div id="integration-form"></div>`
 - JS:
 ```
