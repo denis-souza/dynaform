@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <title>Formulario Dinamico</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- <link href="css/agency.min.css" rel="stylesheet"> -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+<body id="page-top" class="index">
+    <section id="project">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 text-center">
+            <div id="integration-form"></div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="dynaform.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+      $(document).ready(function() {
+        options = {
+          'token':'62bb61431348e22850828a5829c4373faafe29c1',
+          'secret':'51a266c2844ccd5cac83d88de88d82d05358aa51',
+          'fields':{
+            'state':['PR','SC','SP','RS'],
+            'level':['Iniciante','Intermediário','Avançado','Ninja']
+          }
+        }
+
+        $('#integration-form').dynaform(options);
+
+        // process the form
+        $('#dynaform').submit(function(event) {
+          var formData = {
+            'token' : $('input[name=token]').val(),
+            'secret' : $('input[name=secret]').val(),
+            'lead' : {
+              'name':$('input[name=name]').val(),
+              'email':$('input[name=email]').val(),
+              'state': $('select[name=state]').val(),
+              'level' : $('select[name=level]').val()
+            }
+          };
+
+          $.ajax({
+            type: 'POST',
+            url: 'http://server.com.br/save-lead/',
+            data: JSON.stringify(formData),
+            dataType: 'json',
+            encode: true,
+            error: function (request, textStatus, errorThrown) {
+              console.log(request);
+              if (request.status == 500 || request.status == 0) {
+                $('#integration-form').prepend('<div class="alert alert-danger">Ops! Ocorreu o erro <strong>87: Servidor Não Operante.</strong> Informe esse erro ao administrador do sistema.</div>');
+              };
+            }
+          })
+          event.preventDefault();
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+.dynaform input,
+.dynaform select{
+  margin-bottom: 10px;
+}
+
+#integration-form{
+  padding: 30px;
+  background-color: #f9f9f9;
+  border: 1px solid #66afe9;
+  margin-top: 30px;
+}
+
+.button-form {
+  width: 100%;
+  background-color: #66afe9;
+  color: #FFF;
+  font-size: 18px;
+}
+
