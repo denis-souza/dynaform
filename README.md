@@ -16,4 +16,6 @@ Setup configs:
   }
 ```
 
-Statup form: `$('#integration-form').dynaform(options);`
+Statup form: 
+- HTML: `<div id="integration-form"></div>`
+- JS: `$('#integration-form').dynaform(options);`
