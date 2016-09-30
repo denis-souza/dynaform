@@ -1,3 +1,5 @@
+# Dynaform
+
 This plugin is to create a form with dynamic fields.
 
 Installation: include the dynaform.js file in your main file.
@@ -14,4 +16,3 @@ Setup configs:
 
 Statup form:
 $('#integration-form').dynaform(options);
-
